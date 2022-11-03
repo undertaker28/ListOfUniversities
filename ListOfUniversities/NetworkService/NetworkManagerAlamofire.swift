@@ -5,7 +5,6 @@
 //  Created by Pavel on 4.11.22.
 //
 
-import Foundation
 import Alamofire
 
 protocol NetworkOutputAlamofire {

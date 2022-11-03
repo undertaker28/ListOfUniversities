@@ -6,40 +6,46 @@
 //
 
 import UIKit
-import SnapKit
 
 class UniversityDetailViewController: UIViewController {
-    var name = ""
-    var country = ""
-    var domain = ""
+    lazy var name = ""
+    lazy var country = ""
+    lazy var domain = ""
     
-    private let nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         return label
     }()
     
-    private let countryLabel: UILabel = {
+    lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         return label
     }()
     
-    private let domainLabel: UILabel = {
+    lazy var domainLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         return label
     }()
     
-    var stackView = UIStackView()
-
+    private lazy var stackView = UIStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        setupStackView()
+        setupNavigationBar()
+        
+        makeConstraints()
+    }
+    
+    private func setupStackView() {
         nameLabel.text = "Name: \(name)"
         countryLabel.text = "Country: \(country)"
         domainLabel.text = "Domain: \(domain)"
@@ -48,19 +54,24 @@ class UniversityDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fill
-        view.addSubview(stackView)
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        title = "University info"
+        view.addSubview(stackView)
         
         makeConstraints()
     }
     
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "University info"
+    }
+    
+    
+    
     func makeConstraints() {
-        stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(150)
-            make.leftMargin.equalToSuperview()
-            make.rightMargin.equalToSuperview()
+        stackView.snp.makeConstraints { stack in
+            stack.top.equalToSuperview().offset(150)
+            stack.leftMargin.equalToSuperview()
+            stack.rightMargin.equalToSuperview()
         }
     }
     

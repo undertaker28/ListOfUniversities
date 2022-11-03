@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E9A2413A2914451A006B74C7 /* UniversityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */; };
 		E9A2413C29146B78006B74C7 /* NetworkManagerAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */; };
+		E9A2414029147027006B74C7 /* UISearchBarDelegate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2413F29147027006B74C7 /* UISearchBarDelegate+Extensions.swift */; };
 		E9C0E79E291326AE0059F3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E79D291326AE0059F3F0 /* AppDelegate.swift */; };
 		E9C0E7A0291326AE0059F3F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E79F291326AE0059F3F0 /* SceneDelegate.swift */; };
 		E9C0E7A2291326AE0059F3F0 /* ListOfUniversitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E7A1291326AE0059F3F0 /* ListOfUniversitiesViewController.swift */; };
@@ -30,6 +31,7 @@
 		B3EFD1D6992B635F979850B3 /* Pods-ListOfUniversities.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListOfUniversities.release.xcconfig"; path = "Target Support Files/Pods-ListOfUniversities/Pods-ListOfUniversities.release.xcconfig"; sourceTree = "<group>"; };
 		E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailViewController.swift; sourceTree = "<group>"; };
 		E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAlamofire.swift; sourceTree = "<group>"; };
+		E9A2413F29147027006B74C7 /* UISearchBarDelegate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBarDelegate+Extensions.swift"; sourceTree = "<group>"; };
 		E9C0E79A291326AE0059F3F0 /* ListOfUniversities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListOfUniversities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C0E79D291326AE0059F3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C0E79F291326AE0059F3F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,10 +98,10 @@
 		E9C0E79C291326AE0059F3F0 /* ListOfUniversities */ = {
 			isa = PBXGroup;
 			children = (
+				E9C0E7B12913288F0059F3F0 /* Applications */,
 				E9FDFAD22913B2000036B7F2 /* NetworkService */,
 				E9FDFACF2913AEEA0036B7F2 /* Model */,
-				E9C0E7B12913288F0059F3F0 /* Applications */,
-				E9C0E7B2291328A80059F3F0 /* ViewController */,
+				E9C0E7B2291328A80059F3F0 /* ViewControllers */,
 				E9C0E7B529132CD70059F3F0 /* Extensions */,
 				E9C0E7B3291328BC0059F3F0 /* SupportingFiles */,
 			);
@@ -115,7 +117,7 @@
 			path = Applications;
 			sourceTree = "<group>";
 		};
-		E9C0E7B2291328A80059F3F0 /* ViewController */ = {
+		E9C0E7B2291328A80059F3F0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				E9C0E7A1291326AE0059F3F0 /* ListOfUniversitiesViewController.swift */,
@@ -124,7 +126,7 @@
 				E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */,
 				E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E9C0E7B3291328BC0059F3F0 /* SupportingFiles */ = {
@@ -150,6 +152,7 @@
 			children = (
 				E9C0E7B629132DDB0059F3F0 /* UITableViewDelegate+Extensions.swift */,
 				E9C0E7B829132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift */,
+				E9A2413F29147027006B74C7 /* UISearchBarDelegate+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				E9C0E7B729132DDB0059F3F0 /* UITableViewDelegate+Extensions.swift in Sources */,
 				E9C0E7BD291339210059F3F0 /* SearchingUniversitiesViewController.swift in Sources */,
 				E9FDFADC2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift in Sources */,
+				E9A2414029147027006B74C7 /* UISearchBarDelegate+Extensions.swift in Sources */,
 				E9C0E7B929132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift in Sources */,
 				E9C0E7A0291326AE0059F3F0 /* SceneDelegate.swift in Sources */,
 				E9FDFAD12913AEF30036B7F2 /* Model.swift in Sources */,

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol NetworkOutputURLSession {
     func fetchData(urlString: String, completion: @escaping ([UniversityModel]?) -> Void)

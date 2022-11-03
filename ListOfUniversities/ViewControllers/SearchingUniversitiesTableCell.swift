@@ -10,24 +10,23 @@ import UIKit
 var indexes = [Int]()
 
 class SearchingUniversitiesTableCell: UITableViewCell {
-    
-    private let label: UILabel = {
+    lazy var name: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
     
-    private let button: UIButton = {
-        let b = UIButton()
+    lazy var icon: UIButton = {
+        let button = UIButton()
         let image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
-        b.setImage(image, for: .normal)
-        return b
+        button.setImage(image, for: .normal)
+        return button
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
-        setConstraints()
+        makeConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -38,26 +37,24 @@ class SearchingUniversitiesTableCell: UITableViewCell {
         self.backgroundColor = .clear
         self.selectionStyle = .none
         
-        self.addSubview(label)
-        self.addSubview(button)
+        self.addSubview(name)
+        self.addSubview(icon)
         
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        icon.addTarget(self, action: #selector(addUniversity), for: .touchUpInside)
     }
     
-    func configureAlbumCell(album: UniversityModel, index: IndexPath.Index) {
-        label.text = album.name
+    func configureSearchingUniversitiesTableCell(album: UniversityModel, index: IndexPath.Index) {
+        name.text = album.name
         if UserDefaults.standard.bool(forKey: "btn\(index)") {
             let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
-            button.setImage(imageFilled, for: .normal)
-            button.isEnabled = false
+            icon.setImage(imageFilled, for: .normal)
+            icon.isEnabled = false
         }
-        button.tag = index
-        //button.isEnabled = true
+        icon.tag = index
     }
     
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func addUniversity(sender: UIButton!) {
         let id = sender.tag
-        print(id)
         indexes.append(id)
         guard let appendedData = searchResponse else { return }
         
@@ -69,27 +66,25 @@ class SearchingUniversitiesTableCell: UITableViewCell {
         sender.isEnabled = false
     }
     
-    private func setConstraints() {
-        
+    private func makeConstraints() {
         contentView.backgroundColor = .white
-        [button, label].forEach(contentView.addSubview)
+        [icon, name].forEach(contentView.addSubview)
         
-        button.snp.makeConstraints { (make) in
-            make.trailing.equalTo(contentView.layoutMarginsGuide)
-            make.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
-            make.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
-            make.centerY.equalTo(contentView.snp.centerY)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
+        icon.snp.makeConstraints { button in
+            button.trailing.equalTo(contentView.layoutMarginsGuide)
+            button.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
+            button.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
+            button.centerY.equalTo(contentView.snp.centerY)
+            button.width.equalTo(30)
+            button.height.equalTo(30)
         }
         
-        // constrain label to leading margin
-        label.snp.makeConstraints { (make) in
-            make.leading.equalTo(contentView.layoutMarginsGuide)
-            make.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
-            make.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
-            make.centerY.equalTo(contentView.snp.centerY)
-            make.trailing.equalTo(button.snp.leading).offset(-8)
+        name.snp.makeConstraints { label in
+            label.leading.equalTo(contentView.layoutMarginsGuide)
+            label.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
+            label.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
+            label.centerY.equalTo(contentView.snp.centerY)
+            label.trailing.equalTo(icon.snp.leading).offset(-8)
         }
     }
 }
