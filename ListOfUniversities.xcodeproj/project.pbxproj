@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9A2413A2914451A006B74C7 /* UniversityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */; };
+		E9A2413C29146B78006B74C7 /* NetworkManagerAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */; };
 		E9C0E79E291326AE0059F3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E79D291326AE0059F3F0 /* AppDelegate.swift */; };
 		E9C0E7A0291326AE0059F3F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E79F291326AE0059F3F0 /* SceneDelegate.swift */; };
 		E9C0E7A2291326AE0059F3F0 /* ListOfUniversitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E7A1291326AE0059F3F0 /* ListOfUniversitiesViewController.swift */; };
@@ -16,6 +18,9 @@
 		E9C0E7B929132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E7B829132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift */; };
 		E9C0E7BB2913303B0059F3F0 /* ListOfUniversitiesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E7BA2913303B0059F3F0 /* ListOfUniversitiesTableCell.swift */; };
 		E9C0E7BD291339210059F3F0 /* SearchingUniversitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E7BC291339210059F3F0 /* SearchingUniversitiesViewController.swift */; };
+		E9FDFAD12913AEF30036B7F2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFAD02913AEF30036B7F2 /* Model.swift */; };
+		E9FDFADA2913E41A0036B7F2 /* NetworkManagerURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFAD92913E41A0036B7F2 /* NetworkManagerURLSession.swift */; };
+		E9FDFADC2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */; };
 		EBBDCEEDFB4D61C4A64C8215 /* Pods_ListOfUniversities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179FC25EE94E7707FCE647F5 /* Pods_ListOfUniversities.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +28,8 @@
 		090FD055F2E8DF22C49C9426 /* Pods-ListOfUniversities.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListOfUniversities.debug.xcconfig"; path = "Target Support Files/Pods-ListOfUniversities/Pods-ListOfUniversities.debug.xcconfig"; sourceTree = "<group>"; };
 		179FC25EE94E7707FCE647F5 /* Pods_ListOfUniversities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ListOfUniversities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EFD1D6992B635F979850B3 /* Pods-ListOfUniversities.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListOfUniversities.release.xcconfig"; path = "Target Support Files/Pods-ListOfUniversities/Pods-ListOfUniversities.release.xcconfig"; sourceTree = "<group>"; };
+		E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailViewController.swift; sourceTree = "<group>"; };
+		E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAlamofire.swift; sourceTree = "<group>"; };
 		E9C0E79A291326AE0059F3F0 /* ListOfUniversities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListOfUniversities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C0E79D291326AE0059F3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C0E79F291326AE0059F3F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +41,9 @@
 		E9C0E7B829132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewDataSource+Extensions.swift"; sourceTree = "<group>"; };
 		E9C0E7BA2913303B0059F3F0 /* ListOfUniversitiesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUniversitiesTableCell.swift; sourceTree = "<group>"; };
 		E9C0E7BC291339210059F3F0 /* SearchingUniversitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingUniversitiesViewController.swift; sourceTree = "<group>"; };
+		E9FDFAD02913AEF30036B7F2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E9FDFAD92913E41A0036B7F2 /* NetworkManagerURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerURLSession.swift; sourceTree = "<group>"; };
+		E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingUniversitiesTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,8 @@
 		E9C0E79C291326AE0059F3F0 /* ListOfUniversities */ = {
 			isa = PBXGroup;
 			children = (
+				E9FDFAD22913B2000036B7F2 /* NetworkService */,
+				E9FDFACF2913AEEA0036B7F2 /* Model */,
 				E9C0E7B12913288F0059F3F0 /* Applications */,
 				E9C0E7B2291328A80059F3F0 /* ViewController */,
 				E9C0E7B529132CD70059F3F0 /* Extensions */,
@@ -109,6 +121,8 @@
 				E9C0E7A1291326AE0059F3F0 /* ListOfUniversitiesViewController.swift */,
 				E9C0E7BA2913303B0059F3F0 /* ListOfUniversitiesTableCell.swift */,
 				E9C0E7BC291339210059F3F0 /* SearchingUniversitiesViewController.swift */,
+				E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */,
+				E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -138,6 +152,23 @@
 				E9C0E7B829132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E9FDFACF2913AEEA0036B7F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9FDFAD02913AEF30036B7F2 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9FDFAD22913B2000036B7F2 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E9FDFAD92913E41A0036B7F2 /* NetworkManagerURLSession.swift */,
+				E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,13 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9A2413C29146B78006B74C7 /* NetworkManagerAlamofire.swift in Sources */,
 				E9C0E7A2291326AE0059F3F0 /* ListOfUniversitiesViewController.swift in Sources */,
 				E9C0E7BB2913303B0059F3F0 /* ListOfUniversitiesTableCell.swift in Sources */,
+				E9FDFADA2913E41A0036B7F2 /* NetworkManagerURLSession.swift in Sources */,
 				E9C0E79E291326AE0059F3F0 /* AppDelegate.swift in Sources */,
 				E9C0E7B729132DDB0059F3F0 /* UITableViewDelegate+Extensions.swift in Sources */,
 				E9C0E7BD291339210059F3F0 /* SearchingUniversitiesViewController.swift in Sources */,
+				E9FDFADC2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift in Sources */,
 				E9C0E7B929132E5D0059F3F0 /* UITableViewDataSource+Extensions.swift in Sources */,
 				E9C0E7A0291326AE0059F3F0 /* SceneDelegate.swift in Sources */,
+				E9FDFAD12913AEF30036B7F2 /* Model.swift in Sources */,
+				E9A2413A2914451A006B74C7 /* UniversityDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

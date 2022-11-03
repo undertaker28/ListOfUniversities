@@ -8,14 +8,20 @@
 import UIKit
 
 extension ListOfUniversitiesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsViewController = UniversityDetailViewController()
+        detailsViewController.name = universities[indexPath.row].name
+        detailsViewController.country = universities[indexPath.row].country
+        detailsViewController.domain = universities[indexPath.row].domains.first!
+        navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            universities.remove(at: indexPath.row)
+            print(indexes[indexPath.row])
+            UserDefaults.standard.set(false, forKey: "btn\(indexes[indexPath.row])")
+            indexes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

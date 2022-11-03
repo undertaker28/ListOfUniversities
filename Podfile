@@ -7,5 +7,6 @@ target 'ListOfUniversities' do
 
   # Pods for ListOfUniversities
   pod 'SnapKit'
+  pod 'Alamofire'
 
 end

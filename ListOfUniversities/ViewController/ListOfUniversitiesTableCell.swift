@@ -8,24 +8,32 @@
 import UIKit
 
 class ListOfUniversitiesTableCell: UITableViewCell {
-    var cellImageView = UIImageView()
-    var cellLabel = UILabel()
+    let cellLink: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let cellLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    var stackView = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "listOfUniversitiesTableCell")
         
-        cellImageView.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
-        cellImageView.contentMode = .scaleAspectFill
-        cellImageView.layer.masksToBounds = true
-        cellImageView.layer.cornerRadius = cellImageView.bounds.width / 2
-        cellImageView.clipsToBounds = true
-        
-        contentView.addSubview(cellImageView)
-        
-        cellLabel.translatesAutoresizingMaskIntoConstraints = false
-        cellLabel.font = UIFont.systemFont(ofSize: 18)
-        
-        contentView.addSubview(cellLabel)
+        stackView = UIStackView(arrangedSubviews: [cellLabel, cellLink])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .equalCentering
+        self.addSubview(stackView)
         
         makeConstraints()
     }
@@ -35,15 +43,13 @@ class ListOfUniversitiesTableCell: UITableViewCell {
     }
     
     func makeConstraints() {
-        cellImageView.snp.makeConstraints { image in
-            image.centerY.equalTo(contentView)
-            image.size.width.height.equalTo(46)
-            image.leading.equalTo(contentView).offset(20)
-        }
-        
-        cellLabel.snp.makeConstraints { label in
-            label.centerY.equalTo(contentView)
-            label.leading.equalTo(cellImageView.snp.trailing).offset(10)
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top).offset(10)
+            make.leftMargin.equalToSuperview().offset(10)
+            make.rightMargin.equalToSuperview().offset(-10)
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalTo(self.snp.trailing).offset(-10)
         }
     }
 }

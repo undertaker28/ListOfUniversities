@@ -8,21 +8,23 @@
 import UIKit
 import SnapKit
 
+var universities = [UniversityModel]()
+
 class ListOfUniversitiesViewController: UIViewController {
     
     var tableView = UITableView()
-    var universities = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .white
-        
+        //universities.append(UniversityModel(domains: ["dad"], alphaTwoCode: "dad", webPages: ["dad"], country: "dad", stateProvince: "dad", name: "dad"))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ListOfUniversitiesTableCell.self, forCellReuseIdentifier: "listOfUniversitiesTableCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = 66
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
 
         view.addSubview(tableView)
         
@@ -31,21 +33,28 @@ class ListOfUniversitiesViewController: UIViewController {
         tableView.tableHeaderView = UIView()
         
         let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addUniversity))
-        self.navigationItem.rightBarButtonItem  = addBarButtonItem
+        self.navigationItem.rightBarButtonItem = addBarButtonItem
         //navigationItem.rightBarButtonItem = rightBarButton
         
         makeConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(indexes)
+        tableView.reloadData()
+    }
+    
     @objc func addUniversity(){
-        self.present(SearchingUniversitiesViewController(), animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(SearchingUniversitiesViewController(), animated: true)
+            //self.present(SearchingUniversitiesViewController(), animated: true)
+        }
     }
     
     func makeConstraints() {
         tableView.snp.makeConstraints { tableView in
-            tableView.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            tableView.size.height.equalTo(66)
-            tableView.size.width.equalToSuperview()
+            tableView.top.bottom.trailing.leading.equalToSuperview()
         }
     }
     
