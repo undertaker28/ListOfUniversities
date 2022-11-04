@@ -16,6 +16,9 @@ class SearchingUniversitiesTableCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Singleton
+    static var shared: SearchingUniversitiesTableCell?
+    
     lazy var icon: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
@@ -56,10 +59,9 @@ class SearchingUniversitiesTableCell: UITableViewCell {
     @objc func addUniversity(sender: UIButton!) {
         let id = sender.tag
         indexes.append(id)
+        print(indexes)
         guard let appendedData = searchResponse else { return }
-        
-        universities.append(UniversityModel(domains: appendedData[id].domains, alphaTwoCode: appendedData[id].alphaTwoCode, webPages: appendedData[id].webPages, country: appendedData[id].country, stateProvince: appendedData[id].stateProvince, name: appendedData[id].name))
-        
+        ListOfUniversitiesViewController.shared?.universities.append(UniversityModel(domains: appendedData[id].domains, alphaTwoCode: appendedData[id].alphaTwoCode, webPages: appendedData[id].webPages, country: appendedData[id].country, stateProvince: appendedData[id].stateProvince, name: appendedData[id].name))
         UserDefaults.standard.set(true, forKey: "btn\(id)")
         let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
         sender.setImage(imageFilled, for: .normal)

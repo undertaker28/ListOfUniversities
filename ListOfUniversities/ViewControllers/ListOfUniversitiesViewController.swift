@@ -8,16 +8,17 @@
 import UIKit
 import SnapKit
 
-var universities = [UniversityModel]()
-
 class ListOfUniversitiesViewController: UIViewController {
+    // MARK: - Singleton
+    static var shared: ListOfUniversitiesViewController?
     
     var tableView = UITableView()
+    var universities = [UniversityModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        ListOfUniversitiesViewController.shared = self
         setupTableView()
         setupBarButtonItem()
     }
