@@ -65,8 +65,6 @@ class UniversityDetailViewController: UIViewController {
         title = "University info"
     }
     
-    
-    
     func makeConstraints() {
         stackView.snp.makeConstraints { stack in
             stack.top.equalToSuperview().offset(150)

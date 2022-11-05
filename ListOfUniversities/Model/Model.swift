@@ -23,4 +23,8 @@ struct UniversityModel: Codable {
         case stateProvince = "state-province"
         case name
     }
+    
+    static func makeSkeleton() -> UniversityModel {
+        return UniversityModel(domains: [], alphaTwoCode: "", webPages: [], country: "", stateProvince: "", name: "      ")
+    }
 }

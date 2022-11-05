@@ -39,30 +39,17 @@ class SearchingUniversitiesTableCell: UITableViewCell {
     private func setupViews() {
         self.backgroundColor = .clear
         self.selectionStyle = .none
-        
         self.addSubview(name)
         self.addSubview(icon)
         
         icon.addTarget(self, action: #selector(addUniversity), for: .touchUpInside)
     }
     
-    func configureSearchingUniversitiesTableCell(album: UniversityModel, index: IndexPath.Index) {
-        name.text = album.name
-        if UserDefaults.standard.bool(forKey: "btn\(index)") {
-            let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
-            icon.setImage(imageFilled, for: .normal)
-            icon.isEnabled = false
-        }
-        icon.tag = index
-    }
-    
     @objc func addUniversity(sender: UIButton!) {
         let id = sender.tag
+        guard let appendedData = SearchingUniversitiesViewController.shared?.searchResponse else { return }
         indexes.append(id)
-        print(indexes)
-        guard let appendedData = searchResponse else { return }
-        ListOfUniversitiesViewController.shared?.universities.append(UniversityModel(domains: appendedData[id].domains, alphaTwoCode: appendedData[id].alphaTwoCode, webPages: appendedData[id].webPages, country: appendedData[id].country, stateProvince: appendedData[id].stateProvince, name: appendedData[id].name))
-        UserDefaults.standard.set(true, forKey: "btn\(id)")
+        ListOfUniversitiesViewController.shared?.universities.append(appendedData[id])
         let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
         sender.setImage(imageFilled, for: .normal)
         sender.isEnabled = false
@@ -88,5 +75,13 @@ class SearchingUniversitiesTableCell: UITableViewCell {
             label.centerY.equalTo(contentView.snp.centerY)
             label.trailing.equalTo(icon.snp.leading).offset(-8)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        let image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
+        self.icon.setImage(image, for: .normal)
+        self.icon.isEnabled = true
     }
 }

@@ -29,9 +29,22 @@ extension SearchingUniversitiesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchingUniversitiesTableCell
-        let track = (searchResponse?[indexPath.row])!
-        cell.configureSearchingUniversitiesTableCell(album: track, index: indexPath.row)
-        return cell
+        let university = (searchResponse?[indexPath.row]) ?? UniversityModel(domains: [], alphaTwoCode: "", webPages: [], country: "", stateProvince: "", name: "")
+        if loaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchingUniversitiesTableCell
+            cell.name.text = university.name
+            cell.icon.tag = indexPath.row
+            if indexes.contains(indexPath.row) {
+                print(indexPath.row)
+                let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
+                cell.icon.setImage(imageFilled, for: .normal)
+                cell.icon.isEnabled = false
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: skeletonCellId, for: indexPath) as! SkeletonCell
+            cell.name.text = university.name
+            return cell
+        }
     }
 }

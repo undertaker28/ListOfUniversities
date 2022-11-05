@@ -7,21 +7,26 @@
 
 import UIKit
 
-var searchResponse: [UniversityModel]? = nil
-
 final class SearchingUniversitiesViewController: UIViewController {
     lazy var networkManagerURLSession = NetworkManagerURLSession()
     lazy var networkManagerAlamofire = NetworkManagerAlamofire()
-    var timer: Timer?
+    
+    // MARK: - Singleton
+    static var shared: SearchingUniversitiesViewController?
+    
+    var searchResponse: [UniversityModel]? = nil
     
     var tableView = UITableView(frame: .zero, style: .plain)
-    private let cellId = "cellId"
+    let cellId = "cellId"
+    let skeletonCellId = "skeletonCellId"
+    
+    var loaded = false
     
     private lazy var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SearchingUniversitiesViewController.shared = self
         self.title = "Search university"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -40,11 +45,19 @@ final class SearchingUniversitiesViewController: UIViewController {
         view.backgroundColor = .white
         
         tableView.register(SearchingUniversitiesTableCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: skeletonCellId)
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         
         makeConstraints()
+    }
+    
+    func setupSkeletons() {
+        let row = UniversityModel.makeSkeleton()
+        searchResponse = Array(repeating: row, count: 10)
+        tableView.reloadData()
+        
     }
     
     private func setupSearchBar() {
