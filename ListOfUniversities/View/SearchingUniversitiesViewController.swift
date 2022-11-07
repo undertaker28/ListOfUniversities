@@ -1,5 +1,5 @@
 //
-//  SearchingUniversitiesViewController.swift
+//  SearchingUniversitiesView.swift
 //  ListOfUniversities
 //
 //  Created by Pavel on 3.11.22.
@@ -7,26 +7,19 @@
 
 import UIKit
 
-final class SearchingUniversitiesViewController: UIViewController {
-    lazy var networkManagerURLSession = NetworkManagerURLSession()
-    lazy var networkManagerAlamofire = NetworkManagerAlamofire()
-    
+final class SearchingUniversitiesView: UIViewController {    
     // MARK: - Singleton
-    static var shared: SearchingUniversitiesViewController?
+    static var shared: SearchingUniversitiesView?
     
-    var searchResponse: [UniversityModel]? = nil
+    var searchingUniversitiesViewModel = SearchingUniversitiesViewModel()
     
     var tableView = UITableView(frame: .zero, style: .plain)
-    let cellId = "cellId"
-    let skeletonCellId = "skeletonCellId"
-    
-    var loaded = false
     
     private lazy var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SearchingUniversitiesViewController.shared = self
+        SearchingUniversitiesView.shared = self
         self.title = "Search university"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -35,7 +28,6 @@ final class SearchingUniversitiesViewController: UIViewController {
     }
     
     private func setupTableView() {
-        
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -45,7 +37,7 @@ final class SearchingUniversitiesViewController: UIViewController {
         view.backgroundColor = .white
         
         tableView.register(SearchingUniversitiesTableCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(SkeletonCell.self, forCellReuseIdentifier: skeletonCellId)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: "skeletonCellId")
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
@@ -55,7 +47,7 @@ final class SearchingUniversitiesViewController: UIViewController {
     
     func setupSkeletons() {
         let row = UniversityModel.makeSkeleton()
-        searchResponse = Array(repeating: row, count: 10)
+        searchingUniversitiesViewModel.searchResponse = Array(repeating: row, count: 10)
         tableView.reloadData()
         
     }

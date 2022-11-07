@@ -1,5 +1,5 @@
 //
-//  UniversityDetailViewController.swift
+//  UniversityDetailView.swift
 //  ListOfUniversities
 //
 //  Created by Pavel on 3.11.22.
@@ -7,10 +7,8 @@
 
 import UIKit
 
-class UniversityDetailViewController: UIViewController {
-    lazy var name = ""
-    lazy var country = ""
-    lazy var domain = ""
+class UniversityDetailView: UIViewController {
+    var universityDetailViewModel = UniversityDetailViewModel()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -38,17 +36,15 @@ class UniversityDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         setupStackView()
         setupNavigationBar()
-        
         makeConstraints()
     }
     
     private func setupStackView() {
-        nameLabel.text = "Name: \(name)"
-        countryLabel.text = "Country: \(country)"
-        domainLabel.text = "Domain: \(domain)"
+        nameLabel.text = "Name: \(universityDetailViewModel.name)"
+        countryLabel.text = "Country: \(universityDetailViewModel.country)"
+        domainLabel.text = "Domain: \(universityDetailViewModel.domain)"
         
         stackView = UIStackView(arrangedSubviews: [nameLabel, countryLabel, domainLabel])
         stackView.axis = .vertical

@@ -1,5 +1,5 @@
 //
-//  ListOfUniversitiesViewController.swift
+//  ListOfUniversitiesView.swift
 //  ListOfUniversities
 //
 //  Created by Pavel on 3.11.22.
@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-class ListOfUniversitiesViewController: UIViewController {
+class ListOfUniversitiesView: UIViewController {
     // MARK: - Singleton
-    static var shared: ListOfUniversitiesViewController?
+    static var shared: ListOfUniversitiesView?
     
     var tableView = UITableView()
-    var universities = [UniversityModel]()
+    var listOfUniversitiesViewModel = ListOfUniversitiesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        ListOfUniversitiesViewController.shared = self
+        ListOfUniversitiesView.shared = self
         setupTableView()
         setupBarButtonItem()
     }
@@ -52,7 +52,7 @@ class ListOfUniversitiesViewController: UIViewController {
     }
     
     @objc func searchingUniversities(){
-        self.navigationController?.pushViewController(SearchingUniversitiesViewController(), animated: true)
+        self.navigationController?.pushViewController(SearchingUniversitiesView(), animated: true)
     }
     
     func makeConstraints() {

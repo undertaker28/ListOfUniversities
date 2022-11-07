@@ -7,7 +7,7 @@
 
 import UIKit
 
-var indexes = [Int]()
+var indexes = [String: Int]()
 
 class SearchingUniversitiesTableCell: UITableViewCell {
     lazy var name: UILabel = {
@@ -47,9 +47,9 @@ class SearchingUniversitiesTableCell: UITableViewCell {
     
     @objc func addUniversity(sender: UIButton!) {
         let id = sender.tag
-        guard let appendedData = SearchingUniversitiesViewController.shared?.searchResponse else { return }
-        indexes.append(id)
-        ListOfUniversitiesViewController.shared?.universities.append(appendedData[id])
+        guard let appendedData = SearchingUniversitiesView.shared?.searchingUniversitiesViewModel.searchResponse else { return }
+        indexes[appendedData[id].name] = id
+        ListOfUniversitiesView.shared?.listOfUniversitiesViewModel.addUniversity(appendedData[id])
         let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
         sender.setImage(imageFilled, for: .normal)
         sender.isEnabled = false

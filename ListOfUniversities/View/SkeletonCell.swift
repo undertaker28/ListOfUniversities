@@ -33,19 +33,6 @@ class SkeletonCell: UITableViewCell, SkeletonLoadable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        nameLayer.frame = name.bounds
-        nameLayer.cornerRadius = name.bounds.height / 2
-        
-        iconLayer.frame = icon.bounds
-        iconLayer.cornerRadius = icon.bounds.height / 2
-    }
-}
-
-extension SkeletonCell {
-
     func setup() {
         name.translatesAutoresizingMaskIntoConstraints = false
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -90,14 +77,14 @@ extension SkeletonCell {
             label.trailing.equalTo(icon.snp.leading).offset(-8)
         }
     }
-}
-
-extension UIColor {
-    static var gradientDarkGrey: UIColor {
-        return UIColor(red: 239 / 255.0, green: 241 / 255.0, blue: 241 / 255.0, alpha: 1)
-    }
-
-    static var gradientLightGrey: UIColor {
-        return UIColor(red: 201 / 255.0, green: 201 / 255.0, blue: 201 / 255.0, alpha: 1)
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        nameLayer.frame = name.bounds
+        nameLayer.cornerRadius = name.bounds.height / 2
+        
+        iconLayer.frame = icon.bounds
+        iconLayer.cornerRadius = icon.bounds.height / 2
     }
 }
