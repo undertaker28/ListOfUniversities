@@ -14,7 +14,7 @@ struct UniversityModel: Codable {
     let country: String
     let stateProvince: String?
     let name: String
-
+    
     enum CodingKeys: String, CodingKey {
         case domains
         case alphaTwoCode = "alpha_two_code"

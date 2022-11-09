@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SkeletonLoadable {}
+protocol SkeletonLoadable { }
 
 extension SkeletonLoadable {
     func makeAnimationGroup(previousGroup: CAAnimationGroup? = nil) -> CAAnimationGroup {

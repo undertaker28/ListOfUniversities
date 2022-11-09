@@ -61,3 +61,37 @@ class ListOfUniversitiesView: UIViewController {
         }
     }
 }
+
+extension ListOfUniversitiesView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsViewController = UniversityDetailView()
+        detailsViewController.universityDetailViewModel.name = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name
+        detailsViewController.universityDetailViewModel.country = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).country
+        detailsViewController.universityDetailViewModel.domain = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).domains.first!
+        navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            indexes[listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name] = nil
+            listOfUniversitiesViewModel.removeUniversityAtIndex(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
+extension ListOfUniversitiesView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listOfUniversitiesViewModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listOfUniversitiesTableCell", for: indexPath) as! ListOfUniversitiesTableCell
+        cell.accessoryType = .disclosureIndicator
+        let link = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).webPages
+        cell.link.text = link.first
+        let title = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name
+        cell.name.text = title
+        return cell
+    }
+}

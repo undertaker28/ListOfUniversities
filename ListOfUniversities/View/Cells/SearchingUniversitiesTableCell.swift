@@ -16,9 +16,6 @@ class SearchingUniversitiesTableCell: UITableViewCell {
         return label
     }()
     
-    // MARK: - Singleton
-    static var shared: SearchingUniversitiesTableCell?
-    
     lazy var icon: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
