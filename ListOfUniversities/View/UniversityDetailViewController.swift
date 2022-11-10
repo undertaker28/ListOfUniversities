@@ -8,7 +8,16 @@
 import UIKit
 
 class UniversityDetailView: UIViewController {
-    var universityDetailViewModel = UniversityDetailViewModel()
+    var universityDetailViewModel: UniversityDetailViewModel
+    
+    init(name: String, domain: String, country: String) {
+        universityDetailViewModel = UniversityDetailViewModel(name: name, domain: domain, country: country)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -42,9 +51,9 @@ class UniversityDetailView: UIViewController {
     }
     
     private func setupStackView() {
-        nameLabel.text = "Name: \(universityDetailViewModel.name)"
-        countryLabel.text = "Country: \(universityDetailViewModel.country)"
-        domainLabel.text = "Domain: \(universityDetailViewModel.domain)"
+        nameLabel.text = "Name: \(universityDetailViewModel.getName())"
+        countryLabel.text = "Country: \(universityDetailViewModel.getCountry())"
+        domainLabel.text = "Domain: \(universityDetailViewModel.getDomain())"
         
         stackView = UIStackView(arrangedSubviews: [nameLabel, countryLabel, domainLabel])
         stackView.axis = .vertical
@@ -62,10 +71,10 @@ class UniversityDetailView: UIViewController {
     }
     
     func makeConstraints() {
-        stackView.snp.makeConstraints { stack in
-            stack.top.equalToSuperview().offset(150)
-            stack.leftMargin.equalToSuperview()
-            stack.rightMargin.equalToSuperview()
+        stackView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(150)
+            $0.leftMargin.equalToSuperview()
+            $0.rightMargin.equalToSuperview()
         }
     }
     

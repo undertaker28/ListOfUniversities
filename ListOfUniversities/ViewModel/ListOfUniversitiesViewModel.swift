@@ -20,6 +20,14 @@ class ListOfUniversitiesViewModel {
         universities.append(university)
     }
     
+    func getNameOfUniversity(_ index: Int) -> String {
+        universities[index].name
+    }
+    
+    func getPageLinkOfUniversity(_ index: Int) -> String {
+        universities[index].webPages[0]
+    }
+    
     func removeUniversityAtIndex(_ index: Int) {
         universities.remove(at: index)
     }

@@ -42,7 +42,7 @@ class ListOfUniversitiesView: UIViewController {
     }
     
     private func setupBarButtonItem() {
-        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(searchingUniversities))
+        let addBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .done, target: self, action: #selector(searchingUniversities))
         self.navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
@@ -51,23 +51,21 @@ class ListOfUniversitiesView: UIViewController {
         tableView.reloadData()
     }
     
-    @objc func searchingUniversities(){
+    @objc func searchingUniversities() {
         self.navigationController?.pushViewController(SearchingUniversitiesView(), animated: true)
     }
     
     func makeConstraints() {
-        tableView.snp.makeConstraints { table in
-            table.top.bottom.trailing.leading.equalToSuperview()
+        tableView.snp.makeConstraints {
+            $0.top.bottom.trailing.leading.equalToSuperview()
         }
     }
 }
 
 extension ListOfUniversitiesView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsViewController = UniversityDetailView()
-        detailsViewController.universityDetailViewModel.name = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name
-        detailsViewController.universityDetailViewModel.country = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).country
-        detailsViewController.universityDetailViewModel.domain = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).domains.first!
+        let data = listOfUniversitiesViewModel.universityAtIndex(indexPath.row)
+        let detailsViewController = UniversityDetailView(name: data.name, domain: data.domains[0], country: data.country)
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
@@ -88,10 +86,8 @@ extension ListOfUniversitiesView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listOfUniversitiesTableCell", for: indexPath) as! ListOfUniversitiesTableCell
         cell.accessoryType = .disclosureIndicator
-        let link = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).webPages
-        cell.link.text = link.first
-        let title = listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name
-        cell.name.text = title
+        cell.link.text = listOfUniversitiesViewModel.getPageLinkOfUniversity(indexPath.row)
+        cell.name.text = listOfUniversitiesViewModel.getNameOfUniversity(indexPath.row)
         return cell
     }
 }

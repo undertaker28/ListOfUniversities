@@ -56,21 +56,21 @@ class SearchingUniversitiesTableCell: UITableViewCell {
         contentView.backgroundColor = .white
         [icon, name].forEach(contentView.addSubview)
         
-        icon.snp.makeConstraints { button in
-            button.trailing.equalTo(contentView.layoutMarginsGuide)
-            button.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
-            button.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
-            button.centerY.equalTo(contentView.snp.centerY)
-            button.width.equalTo(30)
-            button.height.equalTo(30)
+        icon.snp.makeConstraints {
+            $0.trailing.equalTo(contentView.layoutMarginsGuide)
+            $0.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
+            $0.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
+            $0.centerY.equalTo(contentView.snp.centerY)
+            $0.width.equalTo(30)
+            $0.height.equalTo(30)
         }
         
-        name.snp.makeConstraints { label in
-            label.leading.equalTo(contentView.layoutMarginsGuide)
-            label.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
-            label.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
-            label.centerY.equalTo(contentView.snp.centerY)
-            label.trailing.equalTo(icon.snp.leading).offset(-8)
+        name.snp.makeConstraints {
+            $0.leading.equalTo(contentView.layoutMarginsGuide)
+            $0.top.greaterThanOrEqualTo(contentView.layoutMarginsGuide)
+            $0.bottom.lessThanOrEqualTo(contentView.layoutMarginsGuide)
+            $0.centerY.equalTo(contentView.snp.centerY)
+            $0.trailing.equalTo(icon.snp.leading).offset(-8)
         }
     }
     

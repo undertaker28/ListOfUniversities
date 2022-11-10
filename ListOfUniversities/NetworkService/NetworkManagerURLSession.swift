@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol NetworkOutputURLSession {
-    func fetchData(urlString: String, completion: @escaping ([UniversityModel]?) -> Void)
-}
-
-class NetworkManagerURLSession: NetworkOutputURLSession {
+class NetworkManagerURLSession: NetworkOutput {
     func fetchData(urlString: String, completion: @escaping ([UniversityModel]?) -> Void) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in

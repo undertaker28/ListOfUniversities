@@ -21,6 +21,7 @@ class SearchingUniversitiesView: UIViewController {
         super.viewDidLoad()
         SearchingUniversitiesView.shared = self
         self.title = "Search university"
+        tableView.tableHeaderView = UIView()
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupTableView()
@@ -60,13 +61,19 @@ class SearchingUniversitiesView: UIViewController {
     }
     
     func makeConstraints() {
-        tableView.snp.makeConstraints { table in
-            table.top.bottom.trailing.leading.equalToSuperview()
+        tableView.snp.makeConstraints {
+            $0.top.bottom.trailing.leading.equalToSuperview()
         }
     }
 }
 
 extension SearchingUniversitiesView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -99,46 +106,18 @@ extension SearchingUniversitiesView: UITableViewDataSource {
 
 extension SearchingUniversitiesView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let choice = Int.random(in: 0...1)
-        var urlString = ""
-        
         if searchText.count != 0 {
             self.searchingUniversitiesViewModel.isLoaded = false
             self.setupSkeletons()
+            searchingUniversitiesViewModel.getUniversityByCountry(countryName: searchText.lowercased()) {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         } else {
             self.searchingUniversitiesViewModel.isLoaded = true
             self.searchingUniversitiesViewModel.searchResponse = nil
             self.tableView.reloadData()
-        }
-        
-        // MARK: - URLSession
-        if choice == 0 {
-            urlString = "http://universities.hipolabs.com/search?country=\(searchText.lowercased())"
-            self.searchingUniversitiesViewModel.networkManagerURLSession.fetchData(urlString: urlString, completion: { [weak self] (result) in
-                guard let result = result else { return }
-                if result.count != 0 {
-                    self?.searchingUniversitiesViewModel.isLoaded = true
-                    self?.searchingUniversitiesViewModel.searchResponse = result
-                    self?.tableView.reloadData()
-                } else {
-                    self?.searchingUniversitiesViewModel.searchResponse = nil
-                }
-            })
-        }
-        
-        // MARK: - Alamofire
-        else {
-            urlString = searchText.lowercased()
-            self.searchingUniversitiesViewModel.networkManagerAlamofire.fetchData(searchCountry: urlString, completion: { [weak self] (result) in
-                guard let result = result else { return }
-                if result.count != 0 {
-                    self?.searchingUniversitiesViewModel.isLoaded = true
-                    self?.searchingUniversitiesViewModel.searchResponse = result
-                    self?.tableView.reloadData()
-                } else {
-                    self?.searchingUniversitiesViewModel.searchResponse = nil
-                }
-            })
         }
     }
     

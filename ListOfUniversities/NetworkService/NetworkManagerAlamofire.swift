@@ -7,15 +7,11 @@
 
 import Alamofire
 
-protocol NetworkOutputAlamofire {
-    func fetchData(searchCountry: String, completion: @escaping ([UniversityModel]?) -> Void)
-}
-
-class NetworkManagerAlamofire: NetworkOutputAlamofire {
-    func fetchData(searchCountry: String, completion: @escaping ([UniversityModel]?) -> Void) {
+class NetworkManagerAlamofire: NetworkOutput {
+    func fetchData(urlString: String, completion: @escaping ([UniversityModel]?) -> Void) {
         AF.request(
-            "http://universities.hipolabs.com/search?", method: .get,
-            parameters: ["country": searchCountry])
+            String(urlString.prefix(40)), method: .get,
+            parameters: ["country": urlString.suffix(from: urlString.index(urlString.startIndex, offsetBy: 48))])
         .validate()
         .responseData() { response in
             switch response.result {

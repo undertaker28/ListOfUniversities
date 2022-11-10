@@ -43,13 +43,13 @@ class ListOfUniversitiesTableCell: UITableViewCell {
     }
     
     func makeConstraints() {
-        stackView.snp.makeConstraints { stack in
-            stack.top.equalTo(self.snp.top).offset(10)
-            stack.leftMargin.equalToSuperview().offset(10)
-            stack.rightMargin.equalToSuperview().offset(-10)
-            stack.centerY.equalToSuperview()
-            stack.leading.equalToSuperview().offset(10)
-            stack.trailing.equalTo(self.snp.trailing).offset(-10)
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(self.snp.top).offset(10)
+            $0.leftMargin.equalToSuperview().offset(10)
+            $0.rightMargin.equalToSuperview().offset(-10)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.trailing.equalTo(self.snp.trailing).offset(-10)
         }
     }
 }
