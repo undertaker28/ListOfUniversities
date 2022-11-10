@@ -12,9 +12,9 @@ enum HTTPError: LocalizedError {
     case statusCode
 }
 
-var cancellable: AnyCancellable?
-
 class NetworkManagerCombine: NetworkOutput {
+    var cancellable: AnyCancellable?
+    
     func fetchData(urlString: String, completion: @escaping ([UniversityModel]?) -> Void) {
         guard let url = URL(string: urlString) else { return }
         cancellable = URLSession.shared.dataTaskPublisher(for: url)

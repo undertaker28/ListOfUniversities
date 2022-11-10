@@ -77,5 +77,4 @@ class UniversityDetailView: UIViewController {
             $0.rightMargin.equalToSuperview()
         }
     }
-    
 }

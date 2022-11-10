@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  ResponseModel.swift
 //  ListOfUniversities
 //
 //  Created by Pavel on 3.11.22.

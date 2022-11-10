@@ -90,7 +90,7 @@ extension SearchingUniversitiesView: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchingUniversitiesTableCell
             cell.name.text = university.name
             cell.icon.tag = indexPath.row
-            if indexes.contains(where: { $0.key == university.name }) && indexes.contains(where: { $0.value == indexPath.row }) {
+            if searchingUniversitiesViewModel.getState(id: indexPath.row, name: university.name) {
                 let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
                 cell.icon.setImage(imageFilled, for: .normal)
                 cell.icon.isEnabled = false

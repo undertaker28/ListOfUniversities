@@ -7,9 +7,9 @@
 
 import UIKit
 
-var indexes = [String: Int]()
-
 class SearchingUniversitiesTableCell: UITableViewCell {
+    var searchingUniversitiesViewModel = SearchingUniversitiesViewModel()
+    
     lazy var name: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -45,8 +45,7 @@ class SearchingUniversitiesTableCell: UITableViewCell {
     @objc func addUniversity(sender: UIButton!) {
         let id = sender.tag
         guard let appendedData = SearchingUniversitiesView.shared?.searchingUniversitiesViewModel.searchResponse else { return }
-        indexes[appendedData[id].name] = id
-        ListOfUniversitiesView.shared?.listOfUniversitiesViewModel.addUniversity(appendedData[id])
+        searchingUniversitiesViewModel.addUniversity(id: id, appendedUniversity: appendedData[id])
         let imageFilled = UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .large))
         sender.setImage(imageFilled, for: .normal)
         sender.isEnabled = false

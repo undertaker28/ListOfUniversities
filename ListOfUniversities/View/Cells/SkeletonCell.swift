@@ -14,7 +14,7 @@ class SkeletonCell: UITableViewCell, SkeletonLoadable {
         return label
     }()
     let nameLayer = CAGradientLayer()
-
+    
     lazy var icon: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .large))
@@ -28,7 +28,7 @@ class SkeletonCell: UITableViewCell, SkeletonLoadable {
         setup()
         layout()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -40,11 +40,11 @@ class SkeletonCell: UITableViewCell, SkeletonLoadable {
         nameLayer.startPoint = CGPoint(x: 0, y: 0.5)
         nameLayer.endPoint = CGPoint(x: 1, y: 0.5)
         name.layer.addSublayer(nameLayer)
-
+        
         iconLayer.startPoint = CGPoint(x: 0, y: 0.5)
         iconLayer.endPoint = CGPoint(x: 1, y: 0.5)
         icon.layer.addSublayer(iconLayer)
-
+        
         let titleGroup = makeAnimationGroup()
         titleGroup.beginTime = 0.0
         nameLayer.add(titleGroup, forKey: "backgroundColor")

@@ -9,16 +9,12 @@ import UIKit
 import SnapKit
 
 class ListOfUniversitiesView: UIViewController {
-    // MARK: - Singleton
-    static var shared: ListOfUniversitiesView?
-    
     var tableView = UITableView()
     var listOfUniversitiesViewModel = ListOfUniversitiesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        ListOfUniversitiesView.shared = self
         setupTableView()
         setupBarButtonItem()
     }
@@ -48,6 +44,7 @@ class ListOfUniversitiesView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        listOfUniversitiesViewModel.fetchAll()
         tableView.reloadData()
     }
     
@@ -65,13 +62,12 @@ class ListOfUniversitiesView: UIViewController {
 extension ListOfUniversitiesView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = listOfUniversitiesViewModel.universityAtIndex(indexPath.row)
-        let detailsViewController = UniversityDetailView(name: data.name, domain: data.domains[0], country: data.country)
+        let detailsViewController = UniversityDetailView(name: data.name, domain: data.domain, country: data.country)
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            indexes[listOfUniversitiesViewModel.universityAtIndex(indexPath.row).name] = nil
             listOfUniversitiesViewModel.removeUniversityAtIndex(indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

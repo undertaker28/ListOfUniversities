@@ -11,6 +11,8 @@
 		E91D61082916A4770037625C /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91D61072916A4770037625C /* SkeletonLoadable.swift */; };
 		E9634122291D457F00836957 /* NetworkManagerCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9634121291D457F00836957 /* NetworkManagerCombine.swift */; };
 		E9634125291D4A1C00836957 /* NetworkOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9634124291D4A1C00836957 /* NetworkOutput.swift */; };
+		E9634128291D63C700836957 /* AddedUniversities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9634126291D63C700836957 /* AddedUniversities.xcdatamodeld */; };
+		E963412A291D758D00836957 /* AddedUniversityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9634129291D758D00836957 /* AddedUniversityModel.swift */; };
 		E9A2413A2914451A006B74C7 /* UniversityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */; };
 		E9A2413C29146B78006B74C7 /* NetworkManagerAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */; };
 		E9C0E79E291326AE0059F3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C0E79D291326AE0059F3F0 /* AppDelegate.swift */; };
@@ -23,7 +25,7 @@
 		E9F5CB1E291869430033A6B5 /* ListOfUniversitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5CB1D291869430033A6B5 /* ListOfUniversitiesViewModel.swift */; };
 		E9F5CB202918799F0033A6B5 /* UniversityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5CB1F2918799F0033A6B5 /* UniversityDetailViewModel.swift */; };
 		E9F5CB22291881790033A6B5 /* SearchingUniversitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5CB21291881790033A6B5 /* SearchingUniversitiesViewModel.swift */; };
-		E9FDFAD12913AEF30036B7F2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFAD02913AEF30036B7F2 /* Model.swift */; };
+		E9FDFAD12913AEF30036B7F2 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFAD02913AEF30036B7F2 /* ResponseModel.swift */; };
 		E9FDFADA2913E41A0036B7F2 /* NetworkManagerURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFAD92913E41A0036B7F2 /* NetworkManagerURLSession.swift */; };
 		E9FDFADC2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */; };
 		EBBDCEEDFB4D61C4A64C8215 /* Pods_ListOfUniversities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179FC25EE94E7707FCE647F5 /* Pods_ListOfUniversities.framework */; };
@@ -37,6 +39,8 @@
 		E91D61072916A4770037625C /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
 		E9634121291D457F00836957 /* NetworkManagerCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerCombine.swift; sourceTree = "<group>"; };
 		E9634124291D4A1C00836957 /* NetworkOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOutput.swift; sourceTree = "<group>"; };
+		E9634127291D63C700836957 /* AddedUniversities.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AddedUniversities.xcdatamodel; sourceTree = "<group>"; };
+		E9634129291D758D00836957 /* AddedUniversityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedUniversityModel.swift; sourceTree = "<group>"; };
 		E9A241392914451A006B74C7 /* UniversityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailViewController.swift; sourceTree = "<group>"; };
 		E9A2413B29146B78006B74C7 /* NetworkManagerAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAlamofire.swift; sourceTree = "<group>"; };
 		E9C0E79A291326AE0059F3F0 /* ListOfUniversities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListOfUniversities.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +55,7 @@
 		E9F5CB1D291869430033A6B5 /* ListOfUniversitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUniversitiesViewModel.swift; sourceTree = "<group>"; };
 		E9F5CB1F2918799F0033A6B5 /* UniversityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityDetailViewModel.swift; sourceTree = "<group>"; };
 		E9F5CB21291881790033A6B5 /* SearchingUniversitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingUniversitiesViewModel.swift; sourceTree = "<group>"; };
-		E9FDFAD02913AEF30036B7F2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E9FDFAD02913AEF30036B7F2 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		E9FDFAD92913E41A0036B7F2 /* NetworkManagerURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerURLSession.swift; sourceTree = "<group>"; };
 		E9FDFADB2913EFFF0036B7F2 /* SearchingUniversitiesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingUniversitiesTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +136,7 @@
 				E9C0E7B2291328A80059F3F0 /* View */,
 				E9C0E7B529132CD70059F3F0 /* Extensions */,
 				E9C0E7B3291328BC0059F3F0 /* SupportingFiles */,
+				E9634126291D63C700836957 /* AddedUniversities.xcdatamodeld */,
 			);
 			path = ListOfUniversities;
 			sourceTree = "<group>";
@@ -195,7 +200,8 @@
 		E9FDFACF2913AEEA0036B7F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9FDFAD02913AEF30036B7F2 /* Model.swift */,
+				E9FDFAD02913AEF30036B7F2 /* ResponseModel.swift */,
+				E9634129291D758D00836957 /* AddedUniversityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,10 +342,12 @@
 				E9634122291D457F00836957 /* NetworkManagerCombine.swift in Sources */,
 				E9F5CB202918799F0033A6B5 /* UniversityDetailViewModel.swift in Sources */,
 				E9F5CB22291881790033A6B5 /* SearchingUniversitiesViewModel.swift in Sources */,
+				E963412A291D758D00836957 /* AddedUniversityModel.swift in Sources */,
 				E91D61062916A40C0037625C /* SkeletonCell.swift in Sources */,
 				E9F5CB1B291865630033A6B5 /* UIColor+Extensions.swift in Sources */,
-				E9FDFAD12913AEF30036B7F2 /* Model.swift in Sources */,
+				E9FDFAD12913AEF30036B7F2 /* ResponseModel.swift in Sources */,
 				E9F5CB1E291869430033A6B5 /* ListOfUniversitiesViewModel.swift in Sources */,
+				E9634128291D63C700836957 /* AddedUniversities.xcdatamodeld in Sources */,
 				E9A2413A2914451A006B74C7 /* UniversityDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +558,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E9634126291D63C700836957 /* AddedUniversities.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E9634127291D63C700836957 /* AddedUniversities.xcdatamodel */,
+			);
+			currentVersion = E9634127291D63C700836957 /* AddedUniversities.xcdatamodel */;
+			path = AddedUniversities.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E9C0E792291326AE0059F3F0 /* Project object */;
 }
